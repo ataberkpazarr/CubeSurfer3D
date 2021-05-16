@@ -8,7 +8,7 @@ public class coin : MonoBehaviour
 {
 
     public Text coinText;
-     int total_coin = 0;
+     public int total_coin = 0;
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
@@ -27,5 +27,11 @@ public class coin : MonoBehaviour
             
         }
 
+    }
+
+    public int getTotalCoin()
+    {
+        total_coin = int.Parse(coinText.text.ToString());
+            return total_coin;
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - Coin
   - growUp
   - lastObstacle
+  - finalScoreText
   layers:
   - Default
   - TransparentFX

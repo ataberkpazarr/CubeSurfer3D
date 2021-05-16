@@ -18,6 +18,11 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       text.text=  (player.position.z).ToString("0");
+        // when the user fail, the same level restarted in two seconds, in this time period, unity gives errors in console and in order to prevent this error, try catch used
+        try
+        {
+            text.text = (player.position.z).ToString("0");
+        }
+        catch { }
     }
 }
