@@ -49,15 +49,59 @@ public class playerMovement : MonoBehaviour
             rb.AddForce(0, 0, forwardForce * Time.deltaTime);
         }
         */
+        Vector3 m_YAxis = new Vector3(0, 0, 5);
+        Vector3 m_XAxis = new Vector3(5, 0, 0);
+        Vector3 neg_m_XAxis = new Vector3(-5, 0, 0);
 
-        if (Input.GetKey("d"))
+
+        if (rb.position.x >= 6.9f)
         {
-            rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            rb.constraints = RigidbodyConstraints.FreezePositionX;
+            //rb.velocity = -m_YAxis;
+
+
+            if (Input.GetKey("a"))
+            {
+                rb.constraints = RigidbodyConstraints.None;
+                rb.AddForce(-sidewaysForce *1.5f* Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+               // rb.velocity = -m_XAxis;
+                //rb.velocity = -neg_m_XAxis;
+
+
+            }
+
+
         }
 
-        else if (Input.GetKey("a"))
+        else if (rb.position.x <= -6.9f)
         {
-            rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            rb.constraints = RigidbodyConstraints.FreezePositionX;
+            //rb.velocity = -m_YAxis;
+
+
+            if (Input.GetKey("d"))
+            {
+                rb.constraints = RigidbodyConstraints.None;
+                rb.AddForce(sidewaysForce *1.5f* Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+
+               
+            }
+
+
+        }
+
+        else
+        {
+            if (Input.GetKey("d"))
+            {
+                rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            }
+
+            else if (Input.GetKey("a"))
+            {
+                rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            }
+
         }
 
         if (rb.position.y < -1f) // if our player cube falls down from the surface
