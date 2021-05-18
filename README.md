@@ -1,4 +1,7 @@
 # CubeSurfer3D
+
+Clone game of CubeSurfer which is a famous game of Voodoo Studio.
+
 Opening Scene:
 
 ![resim](https://user-images.githubusercontent.com/55497058/118736285-dd9bd480-b84a-11eb-92e0-77202e450b2f.png)
